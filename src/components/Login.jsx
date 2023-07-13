@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import "../styles/Login.css";
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -17,12 +16,12 @@ function Login() {
     }
     setUsername("");
     setPassword("");
-
-    if (isLoggedIn) {
-        return <Redirect to="/home" />
-    }
-
   };
+
+   if (isLoggedIn) {
+        return <Navigate
+         to="/home" />
+    }
 
   return (
     <div className="login-container">
